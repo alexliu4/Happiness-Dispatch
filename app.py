@@ -16,10 +16,6 @@ def hello():
     # return text(+12482300385)
     return render_template('login.html')
 
-
-def welcome():
-    return("Would you like an emergency kitten or and emergency pupper (or a nightmare)?")
-
 def text(to):
     from twilio.rest import Client
 
@@ -27,12 +23,26 @@ def text(to):
     auth_token = 'e435901c9626edefc0f93ac10c52b41e'
     client = Client(account_sid, auth_token)
 
-    message = client.messages \
-        .create(body= catGenerator(),
-                to=to,
-                from_="+12563882762")
+    sender = "+12563882762"
 
-    print(message.sid)
+    # arbitrary values for now
+    cat = True
+    dog = False
+
+    if (cat):
+        message = client.messages \
+            .create(body=catGenerator(),
+                    to=to,
+                    from_=sender)
+        print(message.sid)
+
+    elif (dog):
+        message = client.messages \
+            .create(body=dogGenerator(),
+                    to=to,
+                    from_=sender)
+        print(message.sid)
+
 
 def catGenerator():
     num = random.randint(0,9)
