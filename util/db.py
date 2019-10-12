@@ -29,7 +29,7 @@ def get_all_users():
 db = sqlite3.connect(DB)
 c = db.cursor()
 commands = []
-commands += ["CREATE TABLE IF NOT EXISTS users(username TEXT, numbers TEXT, cat TEXT, dog TEXT, meme TEXT)"]
+commands += ["CREATE TABLE IF NOT EXISTS users(username TEXT, numbers TEXT, cat TEXT, dog TEXT, meme TEXT);"]
 # commands += ["CREATE TABLE IF NOT EXISTS pages(link TEXT, weather TEXT, comic TEXT)"]
 for command in commands:
     c.execute(command)

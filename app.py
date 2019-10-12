@@ -4,14 +4,18 @@ from passlib.hash import md5_crypt
 import random
 import os
 
-app = Flask(__name__)
+from util import db
 
+app = Flask(__name__)
+app.secret_key = os.urandom(32)
 
 @app.route('/')
 def hello():
     # name = request.args.get("name", "World")
     # return f'Hello, {escape(name)}!'
-    return text(+12482300385)
+    # return text(+12482300385)
+    return render_template('login.html')
+
 
 def welcome():
     return("Would you like an emergency kitten or and emergency pupper (or a nightmare)?")
@@ -77,6 +81,12 @@ def home():
 #             flash("Account Created")
 #     return redirect(url_for("login"))
 
+@app.route('/login')
+def login():
+    if 'user' in session:
+        return redirect(url_for('home'))
+    return render_template('login.html')
+
 @app.route('/register', methods = ["GET", "POST"])
 def register():
     if 'user' in session:
@@ -88,7 +98,7 @@ def register():
         check_num = request.form.get("check_number")
         all_usernames = db.get_all_users()
 
-        if username_input in all_usernames:
+        if r_username in all_usernames:
             # If the hashes match
             if md5_crypt.verify(number_input, all_usernames[username_input]):
                 # Log them in

@@ -14,11 +14,38 @@
 
   <form action ="/auth" method="POST" >
 
-    
 
-    <i>Don't have an account? Register <a href="http://127.0.0.1:5000/register">here</a>! </i> <br>
-    <i>Forgot Password? Click <a href="http://127.0.0.1:5000/reset">here</a>! </i>
+
+    <!-- <i>Don't have an account? Register <a href="http://127.0.0.1:5000/register">here</a>! </i> <br>
+    <i>Forgot Password? Click <a href="http://127.0.0.1:5000/reset">here</a>! </i> -->
+
+    <p> Choose your daily text type! </p>
+
     <br><br>
+
+    <div class="container">
+      <form action="/change">
+        <div class="row">
+          <div class="col-sm">
+            <div class="alert alert-success text-center">
+              <button type="submit" class="btn btn-outline-success btn-block btn-lg" name="profile" value="0">
+                <img src="./../static/doggo.png" class="image-rounded" alt="0" width="100%">
+                <br>
+                <h4>Option 1</h4>
+              </button>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="alert alert-danger text-center">
+              <button type="submit" class="btn btn-outline-danger btn-block btn-lg" name="profile" value="1">
+                <img src= "./../static/kitten.png" class="image-rounded" alt="1" width="100%">
+                <br>
+                <h4>Option 2</h4>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
 
 
     <button type="submit" class="btn btn-primary" value="Login">Submit</button> <br> <br>
