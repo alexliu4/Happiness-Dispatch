@@ -1,5 +1,6 @@
 from flask import Flask, escape, render_template, request, session, url_for, redirect, flash, jsonify
 
+from passlib.hash import md5_crypt
 import random
 import os
 
@@ -85,9 +86,16 @@ def register():
         r_username = request.form.get("username")
         r_num = request.form.get("number")
         check_num = request.form.get("check_number")
+        all_usernames = db.get_all_users()
 
-        if r_username in db.get_all_users():
-            flash("Username taken")
+        if username_input in all_usernames:
+            # If the hashes match
+            if md5_crypt.verify(number_input, all_usernames[username_input]):
+                # Log them in
+                session['user'] = username_input
+                return redirect(url_for("home"))
+                # Allow them to rechoose their text type
+                flash("Account already made. Do you wish to choose a new text type?")
         elif r_num != check_num:
             flash("Numbers do not match!")
         elif r_num.count(' ') != 0:
@@ -98,7 +106,7 @@ def register():
             flash("Username should be alphanumeric")
         else:
             session['user'] = r_username
-            db.add_userFull(r_username, md5_crypt.encrypt(r_password), r_question, md5_crypt.encrypt(r_answer))
+            db.add_user(r_username, md5_crypt.encrypt(r_num))
             return redirect(url_for("home"))
     return render_template('login.html')
 
