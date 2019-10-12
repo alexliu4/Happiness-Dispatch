@@ -23,8 +23,8 @@ def hello():
 
 def text(to):
 
-    account_sid = os.environ['ACac004e27a21155d41defa7bed260694e']
-    auth_token = os.environ['e435901c9626edefc0f93ac10c52b41e']
+    account_sid = 'ACac004e27a21155d41defa7bed260694e'
+    auth_token = 'a899c8b23ecf59df58ea8a6ee0f4120f'
 
     client = Client(account_sid, auth_token)
     sender = "+12563882762"
@@ -170,7 +170,7 @@ def type():
     if 'user' in session:
         if 'profile' in request.args:
             name = request.args['profile'] # finds the option chosen
-            # print(name)
+            print(name)
             db.add_type(session['user'], name) # updates the db photo value
             return redirect(url_for('done'))
     return redirect(url_for('login'))
