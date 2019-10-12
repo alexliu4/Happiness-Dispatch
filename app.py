@@ -132,13 +132,16 @@ def register():
 
         if r_username in all_usernames:
             # If the hashes match
+            print(r_username)
             if (r_num == db.get_users_num(r_username)):
                 # Log them in
                 session['user'] = r_username
-                return redirect(url_for("register"))
+                print(r_num)
+                # return redirect(url_for("register"))
                 # Allow them to rechoose their text type
-                flash("Account already made. Do you wish to choose a new text type?")
-        elif r_num != check_num:
+                flash('''<i>Account already made. Do you wish to choose a new text type?
+                <a href="http://127.0.0.1:5000/register">Yes</a>! </i>''')
+        if r_num != check_num:
             flash("Numbers do not match!")
         elif r_num.count(' ') != 0:
             flash("Numbers can not contain spaces")
