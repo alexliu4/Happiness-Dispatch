@@ -124,15 +124,20 @@ def register():
 
 @app.route('/type', methods = ["GET", "POST"])
 def type():
-    print(session['user'])
+    # print(session['user'])
     if 'user' in session:
         if 'profile' in request.args:
             name = request.args['profile'] # finds the option chosen
             # print(name)
             db.add_type(session['user'], name) # updates the db photo value
-            return render_template("done.html")
+            return redirect(url_for('done'))
     return redirect(url_for('login'))
 
+@app.route('/done')
+def done():
+    if 'user' in session:
+        text(get_users_num(session['user']))
+    return render_template('done.html')
 
 if __name__ == "__main__":
 

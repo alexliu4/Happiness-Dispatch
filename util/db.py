@@ -24,6 +24,16 @@ def get_all_users():
     db.close()
     return users
 
+def get_users_num(user):
+    '''returns the user's num'''
+    db = sqlite3.connect(DB)
+    c = db.cursor()
+    command = "SELECT numbers from users " + "WHERE username ='" + user + "';"
+    c.execute(command)
+    info = c.fetchall()
+    db.close()
+    return info
+
 def add_type(user, type):
     '''adds type to user'''
     db = sqlite3.connect(DB)
