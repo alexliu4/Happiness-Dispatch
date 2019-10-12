@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+
+<div class="jumbotron">
+
+  <h5 class="display-4"> Welcome to Happiness Dispatch! </h5>
+
+  <form action ="/auth" method="POST" >
+
+    
+
+    <i>Don't have an account? Register <a href="http://127.0.0.1:5000/register">here</a>! </i> <br>
+    <i>Forgot Password? Click <a href="http://127.0.0.1:5000/reset">here</a>! </i>
+    <br><br>
+
+
+    <button type="submit" class="btn btn-primary" value="Login">Submit</button> <br> <br>
+    {% for msg in get_flashed_messages() %}
+    <div class="alert alert-warning" role="alert">
+    {{msg}}
+    </div>
+    {% endfor %}
+
+  </form>
+
+</div>
+
+<br>
+
+{% endblock %}
