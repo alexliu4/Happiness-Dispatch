@@ -56,7 +56,11 @@ def catGenerator():
              "https://twitter.com/AdorabIeAnimal/status/1177211034756497409?s=20",
              "https://twitter.com/EmrgencyKittens/status/1180649375070068739?s=20",
              "https://twitter.com/EmrgencyKittens/status/1179924597472411648?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1179784439238402049?s=20"
+             "https://twitter.com/EmrgencyKittens/status/1179784439238402049?s=20",
+             "https://twitter.com/EmrgencyKittens/status/1176885320538828800?s=20",
+             "https://twitter.com/EmrgencyKittens/status/1175575944804864001?s=20",
+             "https://twitter.com/EmrgencyKittens/status/1173623861943918592?s=20",
+             "https://twitter.com/EmrgencyKittens/status/1169053001052557312?s=20"
              ]
     return posts[num]
 
@@ -78,6 +82,7 @@ def dogGenerator():
              "https://twitter.com/CuteEmergency/status/1173218159370919936?s=20",
              "https://twitter.com/CuteEmergency/status/1172538376467206145?s=20",
              "https://twitter.com/CuteEmergency/status/1171957854787518464?s=20",
+             #anna
              "https://ibb.co/VmK5z8Q",
              "https://twitter.com/CuteEmergency/status/1171043835570507776?s=20",
              "https://twitter.com/CuteEmergency/status/1170145911789559808?s=20",
