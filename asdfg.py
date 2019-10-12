@@ -52,30 +52,30 @@ def dogGenerator():
 def home():
     return render_template('home.html')
 
-@app.route('/auth', methods = ["POST"])
-def auth():
-    if 'user' in session:
-        return redirect(url_for('home'))
-    '''Intermediate to authenticate login by user'''
-    # # # Authenticate
-    username_input = request.form.get("username")
-    number_input = request.form.get("number")
-    all_usernames = db.get_all_users()
-    if username_input in all_usernames:
-        # If the hashes match
-        if md5_crypt.verify(number_input, all_usernames[username_input]):
-            # Log them in
-            session['user'] = username_input
-            return redirect(url_for("home"))
-            # Allow them to rechoose their text type
-            flash("Account already made. Do you wish to choose a new text type?")
-        # Failed password and username match
-        else:
-            # next step in the process for the new user
-            session['user'] = username_input
-            return redirect(url_for("home"))
-            flash("Account Created")
-    return redirect(url_for("login"))
+# @app.route('/auth', methods = ["POST"])
+# def auth():
+#     if 'user' in session:
+#         return redirect(url_for('home'))
+#     '''Intermediate to authenticate login by user'''
+#     # # # Authenticate
+#     username_input = request.form.get("username")
+#     number_input = request.form.get("number")
+#     all_usernames = db.get_all_users()
+#     if username_input in all_usernames:
+#         # If the hashes match
+#         if md5_crypt.verify(number_input, all_usernames[username_input]):
+#             # Log them in
+#             session['user'] = username_input
+#             return redirect(url_for("home"))
+#             # Allow them to rechoose their text type
+#             flash("Account already made. Do you wish to choose a new text type?")
+#         # Failed password and username match
+#         else:
+#             # next step in the process for the new user
+#             session['user'] = username_input
+#             return redirect(url_for("home"))
+#             flash("Account Created")
+#     return redirect(url_for("login"))
 
 @app.route('/register', methods = ["GET", "POST"])
 def register():
@@ -107,6 +107,7 @@ def register():
         else:
             session['user'] = r_username
             db.add_user(r_username, md5_crypt.encrypt(r_num))
+            flash("Account Created")
             return redirect(url_for("home"))
     return render_template('login.html')
 
