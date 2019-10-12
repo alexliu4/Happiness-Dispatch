@@ -1,5 +1,9 @@
 from flask import Flask, escape, render_template, request, session, url_for, redirect, flash, jsonify
 
+from twilio.rest import Client
+
+from passlib.hash import md5_crypt
+
 import random
 import os
 import time
@@ -17,12 +21,12 @@ def hello():
     return render_template('login.html')
 
 def text(to):
-    from twilio.rest import Client
 
-    account_sid = 'AC026b3b3de192f720297096a7a35f2877'
-    auth_token = '71f6b46374bc6c9b530ac339a4944044'
+    account_sid = ''
+    auth_token = ''
+
     client = Client(account_sid, auth_token)
-    sender = "+12626498342"
+    sender = "+12563882762"
     x = 0
     while x < 3:
         x += 1
@@ -30,7 +34,7 @@ def text(to):
             message = client.messages.create(
                 body='have a gr9 day :)',
                 from_=sender,
-                media_url=[catGenerator()],
+                media_url=catGenerator(),
                 to=to
             )
             print(message.sid)
@@ -39,7 +43,7 @@ def text(to):
             message = client.messages.create(
                 body='have a gr9 day :)',
                 from_=sender,
-                media_url=[dogGenerator()],
+                media_url=dogGenerator(),
                 to=to
             )
             print(message.sid)
@@ -167,7 +171,7 @@ def type():
     if 'user' in session:
         if 'profile' in request.args:
             name = request.args['profile'] # finds the option chosen
-            # print(name)
+            print(name)
             db.add_type(session['user'], name) # updates the db photo value
             return redirect(url_for('done'))
     return redirect(url_for('login'))
