@@ -4,17 +4,11 @@
 {% endblock %}
 
 {% block content %}
-<br>
-<br>
-<br>
+<br><br><br>
 
 <div class="jumbotron">
 
   <h5 class="display-4"> Welcome to Happiness Dispatch! </h5>
-
-  <form action ="/auth" method="POST" >
-
-
 
     <!-- <i>Don't have an account? Register <a href="http://127.0.0.1:5000/register">here</a>! </i> <br>
     <i>Forgot Password? Click <a href="http://127.0.0.1:5000/reset">here</a>! </i> -->
@@ -24,7 +18,7 @@
     <br><br>
 
     <div class="container">
-      <form action="/change">
+      <form action="/type">
         <div class="row">
           <div class="col-sm">
             <div class="alert alert-success text-center">
@@ -36,26 +30,28 @@
             </div>
           </div>
           <div class="col-sm">
-            <div class="alert alert-danger text-center">
-              <button type="submit" class="btn btn-outline-danger btn-block btn-lg" name="profile" value="1">
-                <img src= "./../static/kitten.png" class="image-rounded" alt="1" width="100%">
-                <br>
-                <h4>Option 2</h4>
-              </button>
-            </div>
+            <div class="btn-group-toggle" data-toggle="buttons">
+          <div class="alert alert-danger text-center">
+            <button type="submit" class="btn btn-outline-danger btn-block btn-lg" name="profile" value="1">
+              <img src= "./../static/kitten.png" class="image-rounded" alt="1" width="100%">
+              <br>
+              <h4>Option 2</h4>
+            </button>
           </div>
-        </form>
+        </div>
       </div>
+    </form>
+  </div>
+
+    <br><br>
 
 
-    <button type="submit" class="btn btn-primary" value="Login">Submit</button> <br> <br>
+    <!-- <button type="submit" class="btn btn-primary" value="Login">Submit</button> <br> <br> -->
     {% for msg in get_flashed_messages() %}
     <div class="alert alert-warning" role="alert">
     {{msg}}
     </div>
     {% endfor %}
-
-  </form>
 
 </div>
 

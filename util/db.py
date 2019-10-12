@@ -24,12 +24,31 @@ def get_all_users():
     db.close()
     return users
 
+def get_users_num(user):
+    '''returns the user's num'''
+    db = sqlite3.connect(DB)
+    c = db.cursor()
+    command = "SELECT numbers from users " + "WHERE username ='" + user + "';"
+    c.execute(command)
+    info = c.fetchall()
+    db.close()
+    return info
+
+def add_type(user, type):
+    '''adds type to user'''
+    db = sqlite3.connect(DB)
+    c = db.cursor()
+    command = "UPDATE users SET type ='" + type + "'WHERE username ='" + user + "';"
+    c.execute(command)
+    db.commit()
+    db.close()
+
 
 # MAKE TABLES AND DATABASE IF THEY DONT EXIST
 db = sqlite3.connect(DB)
 c = db.cursor()
 commands = []
-commands += ["CREATE TABLE IF NOT EXISTS users(username TEXT, numbers TEXT, cat TEXT, dog TEXT, meme TEXT);"]
+commands += ["CREATE TABLE IF NOT EXISTS users(username TEXT, numbers TEXT, type TEXT);"]
 # commands += ["CREATE TABLE IF NOT EXISTS pages(link TEXT, weather TEXT, comic TEXT)"]
 for command in commands:
     c.execute(command)
