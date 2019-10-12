@@ -34,6 +34,16 @@ def get_users_num(user):
     db.close()
     return info
 
+def get_users_type(user):
+    '''returns the user's type'''
+    db = sqlite3.connect(DB)
+    c = db.cursor()
+    command = "SELECT type from users " + "WHERE username ='" + user + "';"
+    c.execute(command)
+    info = c.fetchall()
+    db.close()
+    return info
+
 def add_type(user, type):
     '''adds type to user'''
     db = sqlite3.connect(DB)

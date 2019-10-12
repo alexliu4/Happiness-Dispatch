@@ -1,6 +1,5 @@
 from flask import Flask, escape, render_template, request, session, url_for, redirect, flash, jsonify
 
-from passlib.hash import md5_crypt
 import random
 import os
 
@@ -19,24 +18,18 @@ def hello():
 def text(to):
     from twilio.rest import Client
 
-    account_sid = 'ACac004e27a21155d41defa7bed260694e'
-    auth_token = 'e435901c9626edefc0f93ac10c52b41e'
+    account_sid = 'AC026b3b3de192f720297096a7a35f2877'
+    auth_token = '71f6b46374bc6c9b530ac339a4944044'
     client = Client(account_sid, auth_token)
+    sender = "+12626498342"
 
-    sender = "+12563882762"
-
-    # arbitrary values for now
-    cat = True
-    dog = False
-
-    if (cat):
+    if db.get_users_type(session['user']): # 0 is the dog but this is false
         message = client.messages \
             .create(body=catGenerator(),
                     to=to,
                     from_=sender)
         print(message.sid)
-
-    elif (dog):
+    else:
         message = client.messages \
             .create(body=dogGenerator(),
                     to=to,
@@ -139,7 +132,7 @@ def register():
 
         if r_username in all_usernames:
             # If the hashes match
-            if md5_crypt.verify(r_num, all_usernames[r_username]):
+            if (r_num == db.get_users_num(r_username)):
                 # Log them in
                 session['user'] = r_username
                 return redirect(url_for("register"))
@@ -155,7 +148,7 @@ def register():
             flash("Username should be alphanumeric")
         else:
             session['user'] = r_username
-            db.add_user(r_username, md5_crypt.encrypt(r_num))
+            db.add_user(r_username, ("+1" + r_num))
             flash("Account Created")
             return redirect(url_for("home"))
     return render_template('login.html')
@@ -175,7 +168,9 @@ def type():
 @app.route('/done')
 def done():
     if 'user' in session:
-        text(get_users_num(session['user']))
+        print (session['user'])
+        text(db.get_users_num(session['user']))
+        return render_template('done.html')
     return render_template('done.html')
 
 if __name__ == "__main__":
