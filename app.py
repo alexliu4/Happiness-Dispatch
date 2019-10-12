@@ -46,11 +46,35 @@ def catGenerator():
              "https://twitter.com/AdorabIeAnimal/status/1177211034756497409?s=20",
              "https://twitter.com/EmrgencyKittens/status/1180649375070068739?s=20",
              "https://twitter.com/EmrgencyKittens/status/1179924597472411648?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1179784439238402049?s=20"]
+             "https://twitter.com/EmrgencyKittens/status/1179784439238402049?s=20"
+             ]
     return posts[num]
 
 def dogGenerator():
-    return
+    num = random.randint(0, 19)
+    posts = ["https://twitter.com/CuteEmergency/status/1182829488998158336?s=20",
+             "https://twitter.com/CuteEmergency/status/1182640242664312832?s=20",
+             "https://twitter.com/CuteEmergency/status/1178843222140968960?s=20",
+             "https://twitter.com/CuteEmergency/status/1178480833277153281?s=20",
+             "https://twitter.com/CuteEmergency/status/1177929200709328896?s=20",
+             "https://twitter.com/CuteEmergency/status/1177393669705535488?s=20",
+             "https://twitter.com/mindywhite/status/1177032897083125762?s=20",
+             "https://twitter.com/CuteEmergency/status/1176306508025466881?s=20",
+             "https://twitter.com/CuteEmergency/status/1175030094911459329?s=20",
+             "https://twitter.com/CuteEmergency/status/1174856953790640129?s=20",
+             "https://twitter.com/CuteEmergency/status/1174667706823565314?s=20",
+             "https://twitter.com/CuteEmergency/status/1173942931234988033?s=20",
+             "https://twitter.com/CuteEmergency/status/1173769792261677056?s=20",
+             "https://twitter.com/CuteEmergency/status/1173218159370919936?s=20",
+             "https://twitter.com/CuteEmergency/status/1172538376467206145?s=20",
+             "https://twitter.com/CuteEmergency/status/1171957854787518464?s=20",
+             "https://ibb.co/VmK5z8Q",
+             "https://twitter.com/CuteEmergency/status/1171043835570507776?s=20",
+             "https://twitter.com/CuteEmergency/status/1170145911789559808?s=20",
+             "https://twitter.com/CuteEmergency/status/1169231894774505476?s=20",
+             "https://twitter.com/CuteEmergency/status/1168333978446835714?s=20",
+             "https://twitter.com/CuteEmergency/status/1166061511166648322?s=20" ]
+    return posts[num]
 
 @app.route('/home')
 def home():
