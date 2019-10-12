@@ -102,61 +102,6 @@ def register():
             return redirect(url_for("home"))
     return render_template('login.html')
 
-@app.route('/reset', methods = ["GET", "POST"])
-def reset():
-    if 'user' in session:
-        return redirect(url_for('home'))
-    '''To reset userpassword'''
-    if request.form.get("reg_username") != None:
-        r_username = request.form.get("reg_username")
-        r_answer = request.form.get("reg_answer")
-        r_password = request.form.get("reg_password")
-        check_pass = request.form.get("check_password")
-        all_usernames = db.qaDict() #Returns dict {user:answer_to_question}
-        if r_username not in db.get_all_users():
-            flash("Username not found")
-        elif r_password != check_pass:
-            flash("Passwords do not match!")
-        elif r_password.count(' ') != 0:
-            flash("Password can not contain spaces")
-        elif not r_username.isalnum():
-            flash("Username should be alphanumeric")
-        else:
-            session['user'] = r_username
-            # checks the question and answer in the db
-            if r_username in all_usernames:
-                # if the hashes match
-                if md5_crypt.verify(r_answer, all_usernames[r_username]):
-                    # changes the user password
-                    db.update_pass(r_username, md5_crypt.encrypt(r_password))
-                    return redirect(url_for('home'))
-                else:
-                    flash("Error occurred")
-    return render_template('reset.html')
-
-@app.route('/logout', methods = ['GET'])
-def logout():
-    if 'user' in session:
-        session.pop('user')
-    return redirect(url_for('home'))
-
-@app.route('/add', methods = ['GET', 'POST'])
-def adding():
-    # Add to favorite here
-    user = session['user']
-    timeid = request.form.get("timeid") #timeid is how we reference the article. timeid = "yyyy-mm-dd,id"
-    #print(timeid, "the timeid")
-    added = db.add_Fav(user, timeid)
-    search(timeid)
-    list = db.show_Fav(user)
-    message = ""
-    if added:
-        message = "Successfully added article to favorites"
-    else:
-        message = "Cannot add the same article multiple times"
-    flash(message)
-    return redirect(url_for('fav'))
-
 
 if __name__ == "__main__":
   app.run()
