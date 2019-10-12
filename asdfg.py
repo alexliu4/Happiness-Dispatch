@@ -104,4 +104,12 @@ def register():
 
 
 if __name__ == "__main__":
-  app.run()
+
+    def foo():
+        app.run()
+
+    x = 0
+    while x < 3:
+        foo()
+        x += 1
+        time.sleep(60)
