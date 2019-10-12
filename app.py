@@ -22,66 +22,64 @@ def text(to):
     auth_token = ''
     client = Client(account_sid, auth_token)
     sender = "+12626498342"
-
-    if db.get_users_type(session['user']): # 0 is the dog but this is false
-        message = client.messages \
-            .create(body=catGenerator(),
-                    to=to,
-                    from_=sender)
-        print(message.sid)
-    else:
-        message = client.messages \
-            .create(body=dogGenerator(),
-                    to=to,
-                    from_=sender)
-        print(message.sid)
+    x = 0
+    while x < 3:
+        x += 1
+        if db.get_users_type(session['user']): # 0 is the dog but this is false
+            message = client.messages.create(
+                body='have a gr8 day :)',
+                from_=sender,
+                media_url=[catGenerator()],
+                to=to
+            )
+            print(message.sid)
+        else:
+            message = client.messages.create(
+                body='have a gr8 day :)',
+                from_=sender,
+                media_url=[dogGenerator()],
+                to=to
+            )
+            print(message.sid)
+        time.sleep(20)
 
 
 def catGenerator():
-    num = random.randint(0,9)
-    posts = ["https://twitter.com/EmrgencyKittens/status/1182683535372673029?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1182461312795893761?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1182098923839729664?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1181958751961649152?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1181736539128291329?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1181234003027922946?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1181011762310795266?s=20",
-             "https://twitter.com/AdorabIeAnimal/status/1177211034756497409?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1180649375070068739?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1179924597472411648?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1179784439238402049?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1176885320538828800?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1175575944804864001?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1173623861943918592?s=20",
-             "https://twitter.com/EmrgencyKittens/status/1169053001052557312?s=20"
+    num = random.randint(0,7)
+    posts = ["https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/03/Russian-Blue_01.jpg",
+             "https://cdn.vox-cdn.com/thumbor/-rwMBmhqgFFjfodG72q3g-A0xPM=/0x0:750x394/1200x800/filters:focal(315x137:435x257)/cdn.vox-cdn.com/uploads/chorus_image/image/60939037/GOGHex2SIW8EkuCqnT42_385891624.0.1534632092.jpg",
+             "https://i.imgur.com/epMSRQH.jpg",
+             "http://fenozi.com/wp-content/uploads/2017/04/cute-cats-8.jpg",
+             "https://i.pinimg.com/originals/f3/bd/84/f3bd8497e15399201b634714ec5ed390.jpg",
+             "https://i.imgur.com/SFECZaY.jpg",
+             "https://live.staticflickr.com/3689/8989851909_9b78222fbb.jpg",
+             "https://www.mythirtyspot.com/wp-content/uploads/2014/09/Screen-Shot-2014-09-18-at-10.19.29-PM-1024x712.png",
+             "https://www.chinadaily.com.cn/culture/art/img/attachement/jpg/site1/20171115/f04da2db14841b75eb5836.jpg",
+             "https://www.bestfunnies.com/wp-content/uploads/2015/05/TOP-30-Cute-Cats-Cute-Cat-11.jpg",
+             "https://i.ytimg.com/vi/W-PBFMECvTE/maxresdefault.jpg",
+             "https://www.1800flowers.com/blog/wp-content/uploads/2016/08/cute-kitten-cat-in-flowers-1.jpg",
+             "https://i.ytimg.com/vi/m2Ouo96jTFQ/hqdefault.jpg"
              ]
     return posts[num]
 
 def dogGenerator():
-    num = random.randint(0, 19)
-    posts = ["https://twitter.com/CuteEmergency/status/1182829488998158336?s=20",
-             "https://twitter.com/CuteEmergency/status/1182640242664312832?s=20",
-             "https://twitter.com/CuteEmergency/status/1178843222140968960?s=20",
-             "https://twitter.com/CuteEmergency/status/1178480833277153281?s=20",
-             "https://twitter.com/CuteEmergency/status/1177929200709328896?s=20",
-             "https://twitter.com/CuteEmergency/status/1177393669705535488?s=20",
-             "https://twitter.com/mindywhite/status/1177032897083125762?s=20",
-             "https://twitter.com/CuteEmergency/status/1176306508025466881?s=20",
-             "https://twitter.com/CuteEmergency/status/1175030094911459329?s=20",
-             "https://twitter.com/CuteEmergency/status/1174856953790640129?s=20",
-             "https://twitter.com/CuteEmergency/status/1174667706823565314?s=20",
-             "https://twitter.com/CuteEmergency/status/1173942931234988033?s=20",
-             "https://twitter.com/CuteEmergency/status/1173769792261677056?s=20",
-             "https://twitter.com/CuteEmergency/status/1173218159370919936?s=20",
-             "https://twitter.com/CuteEmergency/status/1172538376467206145?s=20",
-             "https://twitter.com/CuteEmergency/status/1171957854787518464?s=20",
-             #anna
-             "https://ibb.co/VmK5z8Q",
-             "https://twitter.com/CuteEmergency/status/1171043835570507776?s=20",
-             "https://twitter.com/CuteEmergency/status/1170145911789559808?s=20",
-             "https://twitter.com/CuteEmergency/status/1169231894774505476?s=20",
-             "https://twitter.com/CuteEmergency/status/1168333978446835714?s=20",
-             "https://twitter.com/CuteEmergency/status/1166061511166648322?s=20" ]
+    num = random.randint(0,5)
+    posts = ["https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg",
+             "https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/05/16/Pictures/_1571873a-58de-11e8-b431-73159b4b09e2.jpg",
+             "https://www.littlethings.com/app/uploads/2017/05/cute-dog-names-1200.jpg",
+             "https://www.cheatsheet.com/wp-content/uploads/2017/10/corgi-dog-puppies.jpg",
+             "http://fallinpets.com/wp-content/uploads/2017/11/dogs-cute-dog-800x445.jpg",
+             # "",
+             # "",
+             # "",
+             # "",
+             # "",
+             # "",
+             # "",
+             # "",
+             # "",
+             # ""
+             ]
     return posts[num]
 
 @app.route('/home')
@@ -178,11 +176,5 @@ def done():
 
 if __name__ == "__main__":
 
-    def foo():
-        app.run()
+    app.run()
 
-    x = 0
-    while x < 3:
-        foo()
-        x += 1
-        time.sleep(60)
