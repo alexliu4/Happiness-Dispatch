@@ -2,6 +2,7 @@ from flask import Flask, escape, render_template, request, session, url_for, red
 
 import random
 import os
+import time
 
 from util import db
 
@@ -25,22 +26,25 @@ def text(to):
     x = 0
     while x < 3:
         x += 1
-        if db.get_users_type(session['user']): # 0 is the dog but this is false
+        print(db.get_users_type(session['user'])[0][0])
+        if int(db.get_users_type(session['user'])[0][0]): # 0 is the dog but this is false
             message = client.messages.create(
-                body='have a gr8 day :)',
+                body='have a gr9 day :)',
                 from_=sender,
                 media_url=[catGenerator()],
                 to=to
             )
             print(message.sid)
+            print('cat')
         else:
             message = client.messages.create(
-                body='have a gr8 day :)',
+                body='have a gr9 day :)',
                 from_=sender,
                 media_url=[dogGenerator()],
                 to=to
             )
             print(message.sid)
+            print('dog')
         time.sleep(20)
 
 
@@ -131,7 +135,7 @@ def register():
         if r_username in all_usernames:
             # If the hashes match
             print(r_username)
-            if (r_num == db.get_users_num(r_username)):
+            if (r_num == str(db.get_users_num(r_username)[0][0])):
                 # Log them in
                 session['user'] = r_username
                 print(r_num)

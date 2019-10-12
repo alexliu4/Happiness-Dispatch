@@ -32,6 +32,7 @@ def get_users_num(user):
     c.execute(command)
     info = c.fetchall()
     db.close()
+    print(info)
     return info
 
 def get_users_type(user):
@@ -42,6 +43,7 @@ def get_users_type(user):
     c.execute(command)
     info = c.fetchall()
     db.close()
+    print(info)
     return info
 
 def add_type(user, type):
