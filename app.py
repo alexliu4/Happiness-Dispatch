@@ -100,10 +100,10 @@ def register():
 
         if r_username in all_usernames:
             # If the hashes match
-            if md5_crypt.verify(number_input, all_usernames[username_input]):
+            if md5_crypt.verify(r_num, all_usernames[r_username]):
                 # Log them in
-                session['user'] = username_input
-                return redirect(url_for("home"))
+                session['user'] = r_username
+                return redirect(url_for("register"))
                 # Allow them to rechoose their text type
                 flash("Account already made. Do you wish to choose a new text type?")
         elif r_num != check_num:
@@ -120,6 +120,18 @@ def register():
             flash("Account Created")
             return redirect(url_for("home"))
     return render_template('login.html')
+
+
+@app.route('/type', methods = ["GET", "POST"])
+def type():
+    print(session['user'])
+    if 'user' in session:
+        if 'profile' in request.args:
+            name = request.args['profile'] # finds the option chosen
+            # print(name)
+            db.add_type(session['user'], name) # updates the db photo value
+            return render_template("done.html")
+    return redirect(url_for('login'))
 
 
 if __name__ == "__main__":
