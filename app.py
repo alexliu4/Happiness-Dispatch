@@ -1,5 +1,7 @@
 from flask import Flask, escape, render_template, request, session, url_for, redirect, flash, jsonify
 
+from twilio.rest import Client
+
 from passlib.hash import md5_crypt
 import random
 import os
@@ -17,10 +19,9 @@ def hello():
     return render_template('login.html')
 
 def text(to):
-    from twilio.rest import Client
 
-    account_sid = 'ACac004e27a21155d41defa7bed260694e'
-    auth_token = 'e435901c9626edefc0f93ac10c52b41e'
+    account_sid = os.environ['ACac004e27a21155d41defa7bed260694e']
+    auth_token = os.environ['e435901c9626edefc0f93ac10c52b41e']
     client = Client(account_sid, auth_token)
 
     sender = "+12563882762"
