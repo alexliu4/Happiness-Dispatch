@@ -18,8 +18,8 @@ def hello():
 def text(to):
     from twilio.rest import Client
 
-    account_sid = 'AC026b3b3de192f720297096a7a35f2877'
-    auth_token = '71f6b46374bc6c9b530ac339a4944044'
+    account_sid = ''
+    auth_token = ''
     client = Client(account_sid, auth_token)
     sender = "+12626498342"
 
