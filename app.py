@@ -4,6 +4,8 @@ import os
 
 from flask import Flask, escape, render_template, request, session, url_for, redirect, flash, jsonify
 
+from twilio.rest import Client
+
 import random
 import datetime
 import time
@@ -172,36 +174,37 @@ def hello():
 
 
 def text(to):
-    from twilio.rest import Client
+    account_sid = 'AC026b3b3de192f720297096a7a35f2877'
+    auth_token = '71f6b46374bc6c9b530ac339a4944044'
 
-    account_sid = ''
-    auth_token = ''
     client = Client(account_sid, auth_token)
     sender = "+12626498342"
     x = 0
     while x < 3:
         x += 1
-        if db.get_users_type(session['user']): # 0 is the dog but this is false
+        if int(db.get_users_type(session['user'])[0][0]): # 0 is the dog but this is false
             message = client.messages.create(
-                body='have a gr8 day :)',
+                body='have a gr9 day :)',
                 from_=sender,
-                media_url=[catGenerator()],
+                media_url=catGenerator(),
                 to=to
             )
             print(message.sid)
+            print('cat')
         else:
             message = client.messages.create(
-                body='have a gr8 day :)',
+                body='have a gr9 day :)',
                 from_=sender,
-                media_url=[dogGenerator()],
+                media_url=dogGenerator(),
                 to=to
             )
             print(message.sid)
+            print('dog')
         time.sleep(20)
 
 
 def catGenerator():
-    num = random.randint(0,7)
+    num = random.randint(0,13)
     posts = ["https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/03/Russian-Blue_01.jpg",
              "https://cdn.vox-cdn.com/thumbor/-rwMBmhqgFFjfodG72q3g-A0xPM=/0x0:750x394/1200x800/filters:focal(315x137:435x257)/cdn.vox-cdn.com/uploads/chorus_image/image/60939037/GOGHex2SIW8EkuCqnT42_385891624.0.1534632092.jpg",
              "https://i.imgur.com/epMSRQH.jpg",
@@ -214,33 +217,40 @@ def catGenerator():
              "https://www.bestfunnies.com/wp-content/uploads/2015/05/TOP-30-Cute-Cats-Cute-Cat-11.jpg",
              "https://i.ytimg.com/vi/W-PBFMECvTE/maxresdefault.jpg",
              "https://www.1800flowers.com/blog/wp-content/uploads/2016/08/cute-kitten-cat-in-flowers-1.jpg",
-             "https://i.ytimg.com/vi/m2Ouo96jTFQ/hqdefault.jpg"
+             "https://i.ytimg.com/vi/m2Ouo96jTFQ/hqdefault.jpg",
+             "https://cdn1.imggmi.com/uploads/2019/10/12/c9fd6e30cdc52de59f0209a7b4d4aa99-full.jpg",
+
              ]
     return posts[num]
 
 def dogGenerator():
-    num = random.randint(0,5)
+    num = random.randint(0,15)
     posts = ["https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg",
              "https://www.hindustantimes.com/rf/image_size_960x540/HT/p2/2018/05/16/Pictures/_1571873a-58de-11e8-b431-73159b4b09e2.jpg",
              "https://www.littlethings.com/app/uploads/2017/05/cute-dog-names-1200.jpg",
              "https://www.cheatsheet.com/wp-content/uploads/2017/10/corgi-dog-puppies.jpg",
              "http://fallinpets.com/wp-content/uploads/2017/11/dogs-cute-dog-800x445.jpg",
-             # "",
-             # "",
-             # "",
-             # "",
-             # "",
-             # "",
-             # "",
-             # "",
-             # "",
-             # ""
+             "http://images2.fanpop.com/image/photos/13800000/Cute-Dog-dogs-13857490-500-341.jpg",
+             "https://assets.blog.slice.ca/imageserve/wp-content/uploads/2018/04/16215645/cute-dog-names-luna/x.jpg",
+             "https://i1.wp.com/s4.favim.com/orig/50/boo-cute-dog-pomeranian-Favim.com-452643.jpg",
+             "https://www.sheknows.com/wp-content/uploads/2018/08/75819ba4490411e3a2410ea5f30ea1ee_8_vshu0o.jpeg",
+             "https://dognamesinfo.com/wp-content/uploads/2019/02/cute-dog-husky-smiling.jpg",
+             "https://cdn2-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-2.jpg",
+             "https://cdn.pixabay.com/photo/2016/10/31/14/55/rottweiler-1785760__340.jpg",
+             "https://en.bcdn.biz/Images/2016/9/5/5214e7dd-ece5-4d40-b3e5-6e933a15af8e.jpg",
+             "https://www.cheatsheet.com/wp-content/uploads/2017/10/chow-chow-puppy.jpg",
+             "https://i.redd.it/lgshxkmdoeez.jpg",
+             "https://cdn1.imggmi.com/uploads/2019/10/12/c9fd6e30cdc52de59f0209a7b4d4aa99-full.jpg"
              ]
     return posts[num]
 
 @app.route('/home')
 def home():
     return render_template('home.html', background = image_of_the_day())
+
+@app.route('/prevention')
+def prevention():
+    return render_template('prevention.html')
 
 # @app.route('/auth', methods = ["POST"])
 # def auth():
@@ -287,7 +297,7 @@ def register():
         if r_username in all_usernames:
             # If the hashes match
             print(r_username)
-            if (r_num == db.get_users_num(r_username)):
+            if (r_num == str(db.get_users_num(r_username)[0][0])):
                 # Log them in
                 session['user'] = r_username
                 print(r_num)
@@ -317,7 +327,7 @@ def type():
     if 'user' in session:
         if 'profile' in request.args:
             name = request.args['profile'] # finds the option chosen
-            # print(name)
+            print(name)
             db.add_type(session['user'], name) # updates the db photo value
             return redirect(url_for('done'))
     return redirect(url_for('login'))
