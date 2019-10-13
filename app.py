@@ -250,7 +250,7 @@ def home():
 
 @app.route('/prevention')
 def prevention():
-    return render_template('prevention.html')
+    return render_template('prevention.html', background = image_of_the_day())
 
 # @app.route('/auth', methods = ["POST"])
 # def auth():
