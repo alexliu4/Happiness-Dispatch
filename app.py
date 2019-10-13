@@ -2,8 +2,6 @@ from flask import Flask, escape, render_template, request, session, url_for, red
 
 from twilio.rest import Client
 
-from passlib.hash import md5_crypt
-
 import random
 import os
 import time
@@ -21,12 +19,11 @@ def hello():
     return render_template('login.html')
 
 def text(to):
-
-    account_sid = ''
-    auth_token = ''
+    account_sid = 'AC026b3b3de192f720297096a7a35f2877'
+    auth_token = '71f6b46374bc6c9b530ac339a4944044'
 
     client = Client(account_sid, auth_token)
-    sender = "+12563882762"
+    sender = "+12626498342"
     x = 0
     while x < 3:
         x += 1
@@ -95,6 +92,10 @@ def dogGenerator():
 @app.route('/home')
 def home():
     return render_template('home.html')
+
+@app.route('/prevention')
+def prevention():
+    return render_template('prevention.html')
 
 # @app.route('/auth', methods = ["POST"])
 # def auth():
