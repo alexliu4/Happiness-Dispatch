@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<br> <br> <br> <br> <br>
+<div class="content">
+  <div class="books">
+    <form action="/books" method="GET">
+      <input type="text" name="book" placeholder="Input book title"><br>
+      <button type="submit" class="btn btn-outline-light"> Get Recommendations </button>
+</form>
+    {% if books %}
+<div class ="rec">
+    {{books['Name']}} <br>
+    {{books['wTeaser']}} <br>
+</div>
+{% endif %}
+
+</div>
+  </div>
+  <div class="movies"><br>
+    <form action="/movies" method="GET">
+      <input type="text" name="movie" placeholder="Input movie title"><br>
+      <button type="submit" class="btn btn-outline-light"> Get Recommendations </button>
+</form>
+{% if movies %}
+  <div class="rec">
+    {{movies['Name']}} <br>
+    {{movies['wTeaser']}} <br>
+  </div>
+{% endif %}
+
+</div>
+  </div> <br>
+<div class="music">
+  <form action="/music" method="GET">
+        <input type="text" name="song" placeholder="Input band name"><br>
+        <button type="submit" class="btn btn-outline-light"> Get Recommendations </button>
+   </form>
+               {% if songs %}
+   <div class="rec">
+      {{songs['Name']}} <br>
+      {{songs['wTeaser']}} <br>
+  </div>
+  {% endif %}
+  </div>
+</div>
+
+
+
+{% endblock %}

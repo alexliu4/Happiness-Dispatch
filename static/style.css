@@ -1,0 +1,144 @@
+body background {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.btn {
+  margin: 5px;
+}
+
+.middle {
+  display: flex;
+  width: 500px;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-wrap: wrap;
+}
+
+.cover {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  color: white;
+}
+
+.form {
+  /* height: auto;
+  width: 600px;
+  text-align: center; */
+
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  color: white;
+}
+
+.flex-parent {
+  /*width: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.input {
+  margin: 10px;
+}
+
+.landingContent {
+  width: 500px;
+}
+
+.homeContent {
+  padding: 15px;
+  width: 600px;
+  height: auto;
+}
+
+.signup {
+  height: 350px;
+}
+
+.login, .word {
+  height: 200px;
+}
+
+.alert {
+  width: 500px;
+  margin: 30px auto 0px auto;
+  text-align: center;
+}
+
+#w {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#poem {
+  height: 500px;
+  width: 75%;
+  text-align: center;
+  justify-content: center;
+
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  flex-wrap: wrap;
+
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  color: white;
+}
+
+.container-fluid {
+  padding-top: 30px;
+}
+
+.rec {
+  height: 300px;
+  width: 100%;
+  text-align: center;
+
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  color: white;
+}
+
+
+.footer {
+  display: flex;
+  justify-content: center;
+  /* width: 100%; */
+  text-align: center;
+  margin: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-wrap: wrap;
+  background: rgb(34,34,34); /* for IE */
+  background: rgba(34,34,34,0.75);
+  color: white;
+}

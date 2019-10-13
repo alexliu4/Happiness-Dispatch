@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+
+<div class="jumbotron">
+
+  <h5 class="display-4"> Welcome to Happiness Dispatch! </h5>
+
+  <form action ="/register" method="POST" >
+
+    <div class="form-group">
+      <label for="exampleUsername">Name</label>
+      <input type= "text" class="form-control" name="username" placeholder="Username" required>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputNumber">Number</label>
+      <input type= "number" class="form-control" name="number" placeholder="7345895616" required>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleCheckPassword1">Confirm Number</label>
+      <input type= "number" class="form-control" name="check_number" placeholder="Confirm Number" required>
+    </div>
+
+    <!-- <i>Don't have an account? Register <a href="http://127.0.0.1:5000/register">here</a>! </i> <br>
+    <i>Forgot Password? Click <a href="http://127.0.0.1:5000/reset">here</a>! </i> -->
+    <br><br>
+
+
+    <button type="submit" class="btn btn-primary" value="Login">Submit</button> <br> <br>
+    {% for msg in get_flashed_messages() %}
+    <div class="alert alert-warning" role="alert">
+    {{msg}}
+    </div>
+    {% endfor %}
+
+  </form>
+
+</div>
+
+<br>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Michigan CAPS</h1>      
+    <h2>Urgent Support: (734) 764-8312</h2>  
+    <p>Michigan Counseling and Psychological Services (CAPS) plan of action aims to change campus culture, increase resiliency and hope, and create an environment that is actively and visibly engaged in stopping student suicide. Suicide is the second leading cause of death among college students.  One suicide is too many.
+</p>
+  </div>
+    <div class="jumbotron">
+    <h1>Suicide Prevention Lifeline</h1>
+        <h2>24/7 Support: 1-800-273-8255</h2>  
+    <p>The National Suicide Prevention Lifeline is a national network of local crisis centers that provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week. </p>
+  </div>
+
+
+    <div class="jumbotron">
+    <h3>If you have a friend or family member in emotional pain, here are 5 ways to help.     </h3>
+    <ol>
+  <li>ASK: “Are you thinking about killing yourself?” It’s not an easy question, but studies show that asking at-risk individuals if they are suicidal does not increase suicides or suicidal thoughts.</li>
+  <li>KEEP THEM SAFE: Reducing a suicidal person’s access to highly lethal items or places is an important part of suicide prevention. While this is not always easy, asking if the at-risk person has a plan and removing or disabling the lethal means can make a difference.</li>
+  <li>BE THERE: Listen carefully and learn what the individual is thinking and feeling. Research suggests acknowledging and talking about suicide may reduce rather than increase suicidal thoughts.
+</li>
+  <li>HELP THEM CONNECT: Save the National Suicide Prevention Lifeline’s (1-800-273-TALK (8255)) and the Crisis Text Line’s number (741741) in your phone, so it’s there when you need it. You can also help make a connection with a trusted individual like a family member, friend, spiritual advisor, or mental health professional.
+</li>
+  <li>STAY CONNECTED: Staying in touch after a crisis or after being discharged from care can make a difference. Studies have shown the number of suicide deaths goes down when someone follows up with the at-risk person.
+</li>
+</ol> 
+  </div>
+
+
+    
+</div>
+
+
+    <!-- <button type="submit" class="btn btn-primary" value="Login">Submit</button> <br> <br> -->
+    {% for msg in get_flashed_messages() %}
+    <div class="alert alert-warning" role="alert">
+    {{msg}}
+    </div>
+    {% endfor %}
+
+</div>
+
+<br>
+
+{% endblock %}
