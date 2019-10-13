@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="container-fluid centered">
+  <div id="poem">
+    <h3 class="display-5">{{title}}</h3>
+    <div>
+      {{content}}
+      <!-- <form action="/favorite" method="post" accept-charset="utf-8">
+        <input
+          type="hidden"
+          name="data"
+          id="data"
+          value="poem-----{{title}}-----{{content}}">
+        <button type="submit" class="btn btn-outline-light">
+          Favorite
+        </button>
+      </form> -->
+    </div>
+  </div>
+</div>
+
+<br>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="container-fluid centered">
+  <div id="poem">
+
+  <div class="container center" id="comic">
+    <br>
+    <p class="lead">
+      The most recent xkcd comic. Check out their website <a href="https://xkcd.com/">here</a>
+    </p>
+    <img src="{{comic['img']}}" class="img-fluid img-thumbnail">
+  </div>
+</div>
+
+</div>
+
+<br>
+
+{% endblock %}

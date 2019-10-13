@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+
+<!-- Warning to user that ipapi is being used -->
+{% if warning %}
+<div class="container">
+  <div  class="alert alert-warning center collapse show" id="warning"role="alert">
+    <h2 class="font-weight-light">
+      By using this website, you agree to allowing us to use your IP for weather purposes ONLY
+      <br>
+      <button class="btn btn-outline-dark" href="#warning" data-toggle="collapse"> Agree </button>
+    </h2>
+  </div>
+</div>
+{% endif %}
+
+<div class="container d-flex justify-content-center">
+
+  <div class="row" id="rowTop">
+    <div class="col-md-6">
+      {% if 'user' in session %}
+      <h2 class="font-weight-light">Welcome {{session['user']}}<h2>
+        {% endif %}
+      </div>
+
+      <div class="col-md-6">
+        <div class="card text-white bg-dark mb-3 center weatherBox">
+          <!-- Displays location of the user -->
+          <div class="card-header">{{session['location']}}</div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="center">
+                <img class="card-img-top" id="weatherPreviewImage" src="{{data['weather-icon']}}" alt="Image missing">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card-body">
+                <!-- Allows switching between celsius and fahrenheit for temperature using bootstrap's collapse-->
+                <div class="weatherTemp">
+                  <h5 class="card-title collapse show" id="temperature">
+                    {{session['temp-f']}}F |
+                    <a href="#temperature" data-toggle="collapse"> °C </a>
+                  </h5>
+                  <h5 class="card-title collapse" id="temperature">
+                    {{session['temp-c']}}C |
+                    <a href="#temperature" data-toggle="collapse"> °F </a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Shows summary of the weather for the day -->
+          <p class="card-text" id="bottomCardText">{{data['weather-summary']}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Weather section of website -->
+  <div class="container center" id="weather">
+    <h1 class="display-4 fixJump">Weather</h1>
+    <p class="lead">
+      The weather forecast for the current day, switch between Celsius and Fahrenheit by clicking on the desired unit
+    </p>
+    <div id="carouselControls" class="carousel slide" data-ride="carousel" data-interval="10000">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselIndicators" data-slide-to="4"></li>
+        <li data-target="#carouselIndicators" data-slide-to="5"></li>
+        <li data-target="#carouselIndicators" data-slide-to="6"></li>
+        <li data-target="#carouselIndicators" data-slide-to="7"></li>
+      </ol>
+
+      <div class="carousel-inner">
+
+        {% for i in range(8) %}
+        {% if i == 0 %}
+        <div class="carousel-item active">
+          {% else %}
+          <div class="carousel-item">
+            {% endif %}
+            <div class="card-group">
+              <!-- Generates the three weather cards on each slide of the carousel -->
+              {% for j in range(3) %}
+              <div class="card text-white bg-dark mb-3 center weatherBox">
+
+                {% if (i * 3 + j) < 12 %}
+                {% if i * 3 + j == 0 %}
+                <div class="card-header">12:00 AM</div>
+                {% else %}
+                <div class="card-header">{{((i*3+j))|string + ':00 AM'}} </div>
+                {% endif %}
+                {% else %}
+                {% if i * 3 + j == 12 %}
+                <div class="card-header">12:00 PM</div>
+                {% else %}
+                <div class="card-header">{{((i*3+j)%12)|string + ':00 PM'}} </div>
+                {% endif %}
+                {% endif %}
+                <div class="center">
+                  <img class="card-img-top" id="weatherImage" src="{{data['weather-hourly'][i * 3 + j]['icon']}}" alt="Image missing">
+                </div>
+
+                <div class="card-body">
+                  <div class="weatherTemp">
+                    <h3 class="card-title collapse show" id="temperature">
+                      {{data['weather-hourly'][i * 3 + j]['temp-f']}}°F |
+                      <a href="#temperature" data-toggle="collapse"> °C </a>
+                    </h3>
+                    <h3 class="card-title collapse" id="temperature">
+                      {{data['weather-hourly'][i * 3 + j]['temp-c']}}°C |
+                      <a href="#temperature" data-toggle="collapse"> °F </a>
+                    </h3>
+                    <h4 class="card-title"> {{data['weather-hourly'][i * 3 + j]['summary']}}</h4>
+                  </div>
+                </div>
+
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+
+
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  {% endblock %}

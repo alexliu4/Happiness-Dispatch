@@ -1,0 +1,352 @@
+{
+    "2019-10-13": {
+        "weather-summary": "Light rain on Tuesday through next Sunday, with high temperatures bottoming out at 52\u00b0F on Thursday.",
+        "weather-hourly": [
+            {
+                "time": 1570957200,
+                "icon": "/static/icons/night.svg",
+                "temp-f": "40",
+                "temp-c": "4",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570960800,
+                "icon": "/static/icons/night.svg",
+                "temp-f": "39",
+                "temp-c": "4",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570964400,
+                "icon": "/static/icons/night.svg",
+                "temp-f": "37",
+                "temp-c": "3",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570968000,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "37",
+                "temp-c": "3",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570971600,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "40",
+                "temp-c": "4",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570975200,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "44",
+                "temp-c": "6",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570978800,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "48",
+                "temp-c": "9",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570982400,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "51",
+                "temp-c": "11",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570986000,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "54",
+                "temp-c": "12",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1570989600,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "56",
+                "temp-c": "13",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1570993200,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "57",
+                "temp-c": "14",
+                "summary": "Clear"
+            },
+            {
+                "time": 1570996800,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "57",
+                "temp-c": "14",
+                "summary": "Clear"
+            },
+            {
+                "time": 1571000400,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "57",
+                "temp-c": "14",
+                "summary": "Clear"
+            },
+            {
+                "time": 1571004000,
+                "icon": "/static/icons/day.svg",
+                "temp-f": "55",
+                "temp-c": "13",
+                "summary": "Clear"
+            },
+            {
+                "time": 1571007600,
+                "icon": "/static/icons/night.svg",
+                "temp-f": "52",
+                "temp-c": "11",
+                "summary": "Clear"
+            },
+            {
+                "time": 1571011200,
+                "icon": "/static/icons/night.svg",
+                "temp-f": "49",
+                "temp-c": "9",
+                "summary": "Clear"
+            },
+            {
+                "time": 1571014800,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "47",
+                "temp-c": "8",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571018400,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "46",
+                "temp-c": "7",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571022000,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "44",
+                "temp-c": "7",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571025600,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "43",
+                "temp-c": "6",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571029200,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "42",
+                "temp-c": "5",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571032800,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "40",
+                "temp-c": "4",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571036400,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "39",
+                "temp-c": "4",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571040000,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "38",
+                "temp-c": "3",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571043600,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "37",
+                "temp-c": "2",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571047200,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "36",
+                "temp-c": "2",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571050800,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "35",
+                "temp-c": "1",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571054400,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "35",
+                "temp-c": "1",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571058000,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "37",
+                "temp-c": "2",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571061600,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "41",
+                "temp-c": "5",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571065200,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "44",
+                "temp-c": "7",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571068800,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "47",
+                "temp-c": "8",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571072400,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "48",
+                "temp-c": "9",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571076000,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "49",
+                "temp-c": "9",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571079600,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "51",
+                "temp-c": "10",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571083200,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "51",
+                "temp-c": "11",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571086800,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "51",
+                "temp-c": "10",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571090400,
+                "icon": "/static/icons/cloudy-day-2.svg",
+                "temp-f": "50",
+                "temp-c": "10",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571094000,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "46",
+                "temp-c": "8",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571097600,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "44",
+                "temp-c": "6",
+                "summary": "Mostly Cloudy"
+            },
+            {
+                "time": 1571101200,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "42",
+                "temp-c": "5",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571104800,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "40",
+                "temp-c": "4",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571108400,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "38",
+                "temp-c": "3",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571112000,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "37",
+                "temp-c": "3",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571115600,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "36",
+                "temp-c": "2",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571119200,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "36",
+                "temp-c": "2",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571122800,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "35",
+                "temp-c": "1",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571126400,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "34",
+                "temp-c": "1",
+                "summary": "Partly Cloudy"
+            },
+            {
+                "time": 1571130000,
+                "icon": "/static/icons/cloudy-night-2.svg",
+                "temp-f": "34",
+                "temp-c": "1",
+                "summary": "Partly Cloudy"
+            }
+        ],
+        "weather-icon": "/static/icons/night.svg",
+        "comic-image": "https://imgs.xkcd.com/comics/chemistry_nobel.png"
+    }
+}
